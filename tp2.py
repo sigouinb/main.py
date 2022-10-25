@@ -10,15 +10,15 @@ def jeux(): #fonction du jeux de devinette
     def game(): #fonction qui détecte si le choix de nombre est >,<, ou = au nombre de la console
         global tries
         if guess != nombre:
-            tries += 1 #Le nombre d'essais augmente de 1 à chaque mauvais essai
+            tries += 1 #Le nombre d'essais augmente de 1 à chaque mauvaise réponse
             print("Mauvaise réponse! Essaye encore.")
             if guess > nombre:
                 print("Ton choix de nombre est plus grand que mon nombre.")
             elif guess < nombre:
-                print("Ton choix de nombre est plus petit que mon nombre.")
+                print("Ton choix de nombre est plus petit que mon nombre.") #La console nous dit si notre réponse est plus grande ou plus petite que son nombre
         elif guess == nombre:
             print("Tu as bien deviné! Ton nombre d'essais est:", tries,) #La console écrit le nombre d'essais
-            quitte = str(input("Voulez-vous quitter? (y/n)")) #choix de quitter ou pas
+            quitte = str(input("Voulez-vous quitter? (y/n)")) #choix de recommencer ou pas
             if quitte == "n":
                 tries = 0 #réinitialise le nombre d'essais à 0
                 jeux() #fait rejouer le jeux de devinette
@@ -27,5 +27,5 @@ def jeux(): #fonction du jeux de devinette
 
     while guess != nombre:
         guess = int(input("Entre un nombre."))
-        game() #fait rejouer le manège en autant que le joueur n'a pas le bon nombre
+        game() #fait rejouer les devinettes en autant que le joueur n'a pas le bon nombre
 jeux() #fait jouer le jeu
